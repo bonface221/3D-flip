@@ -1,0 +1,75 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+    display: grid;
+    place-content: center;  
+    background: url(./images/home-bg.jpg); 
+    background-position:left; 
+}
+body h1{
+    margin-bottom: 3rem;
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	60% {transform: translateY(-15px);}
+}
+.card{
+    width: 400px;
+    perspective: 800px;
+}
+
+.card-content{
+    text-align: center;
+    position: relative;
+    transition:3s ;
+    transform-style: preserve-3d;
+    padding:5rem;
+    color: #fff;
+    height: 200px;
+}
+.card:hover .card-content{
+    transform: rotateY(180deg);
+}
+.card-front,
+.card-back{
+    position:absolute;
+    top: 0;bottom: 0;
+    left:0;right:0; 
+    padding: 2em;
+    transform-style: preserve-3d;
+    border-radius: .6rem;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+
+}
+.card-front{
+    background: linear-gradient(250deg,#9b6c50 0%,#4f2626 100%);
+}
+.card-back{
+    background: linear-gradient(250deg,#4f2626 0%,#9b6c50 100%);
+}
+.card-title{
+    font-size: 3rem;
+    transform:translateZ(5rem);
+    margin-bottom:.4rem;
+}
+.card-back{
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+}
+.card-body{
+    transform: translateZ(4rem);
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+}
+.card-subtitle{
+    transform: translateZ(5rem);
+    font-size: 1.5rem;
+    letter-spacing: .01rem;
+}
